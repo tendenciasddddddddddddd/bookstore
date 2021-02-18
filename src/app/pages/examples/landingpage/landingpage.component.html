@@ -1,0 +1,413 @@
+<nav
+  class="navbar navbar-expand-lg fixed-top navbar-transparent"
+  color-on-scroll="100"
+  id="navbar-top"
+>
+  <div class="container">
+    <div class="navbar-translate">
+      <a
+        class="navbar-brand"
+        [routerLink]="['/home']"
+        placement="bottom"
+        tooltip="Designed and Coded by Creative Tim"
+      >
+        <span> BLK• </span> Design System Angular
+      </a>
+      <button
+        aria-controls="navigation-index"
+        aria-label="Toggle navigation"
+        class="navbar-toggler navbar-toggler"
+        [attr.aria-expanded]="!isCollapsed"
+        (click)="isCollapsed = !isCollapsed"
+        id="navigation"
+        type="button"
+      >
+        <span class="navbar-toggler-bar bar1"> </span>
+        <span class="navbar-toggler-bar bar2"> </span>
+        <span class="navbar-toggler-bar bar3"> </span>
+      </button>
+    </div>
+    <div
+      class="navbar-collapse justify-content-end"
+      [collapse]="isCollapsed"
+      id="navigation"
+    >
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand"><a> BLK• </a></div>
+          <div class="col-6 collapse-close text-right">
+            <button
+              aria-controls="navigation-index"
+              aria-label="Toggle navigation"
+              class="navbar-toggler"
+              [attr.aria-expanded]="!isCollapsed"
+              (click)="isCollapsed = !isCollapsed"
+              id="navigation"
+              type="button"
+            >
+              <i class="tim-icons icon-simple-remove"> </i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav">
+        <li class="nav-item p-0">
+          <a
+            class="nav-link"
+            href="https://twitter.com/CreativeTim"
+            placement="bottom"
+            target="_blank"
+            tooltip="Follow us on Twitter"
+          >
+            <i class="fab fa-twitter"> </i>
+            <p class="d-lg-none d-xl-none">Twitter</p>
+          </a>
+        </li>
+        <li class="nav-item p-0">
+          <a
+            class="nav-link"
+            href="https://www.facebook.com/CreativeTim"
+            placement="bottom"
+            target="_blank"
+            tooltip="Like us on Facebook"
+          >
+            <i class="fab fa-facebook-square"> </i>
+            <p class="d-lg-none d-xl-none">Facebook</p>
+          </a>
+        </li>
+        <li class="nav-item p-0">
+          <a
+            class="nav-link"
+            href="https://www.instagram.com/CreativeTimOfficial"
+            placement="bottom"
+            target="_blank"
+            tooltip="Follow us on Instagram"
+          >
+            <i class="fab fa-instagram"> </i>
+            <p class="d-lg-none d-xl-none">Instagram</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']"> Back to Kit </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="https://github.com/creativetimofficial/blk-design-system-angular/issues"
+          >
+            Have an issue?
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="wrapper">
+  <div class="page-header">
+    <img class="path" src="assets/img/blob.png" />
+
+    <img class="path2" src="assets/img/path2.png" />
+
+    <img class="shapes triangle" src="assets/img/triunghiuri.png" />
+
+    <img class="shapes wave" src="assets/img/waves.png" />
+
+    <img class="shapes squares" src="assets/img/patrat.png" />
+
+    <img class="shapes circle" src="assets/img/cercuri.png" />
+
+    <div class="content-center">
+      <div class="row row-grid justify-content-between align-items-center text-left">
+      <div class="col-md-4">
+        <div class="px-md-3">
+          <hr class="line-success" />
+
+          <h3 style="font-size: 24px;">Indicaciones</h3>
+          <p>
+            Selecciona el boton empesar para que se genera
+            la matriz de los animales y usted pueda contestar 
+            las preguntas.
+          </p>
+          <ul class="list-unstyled mt-5">
+            <li class="py-2">
+              <div class="d-flex align-items-center">
+                <div class="icon icon-success mb-2">
+                  <i class="tim-icons icon-vector"> </i>
+                </div>
+                <div class="ml-3"> 
+                  <button class="btn btn-link btn-neutral " style="color: white" (click)="iniciarJuego()">{{enpesar_juego}}</button>
+                 
+                </div>
+                
+              </div>
+            </li>
+            <li class="py-2">
+              <div class="d-flex align-items-center">
+                <div class="icon icon-success mb-2">
+                  <i class="tim-icons icon-tap-02"> </i>
+                </div>
+                <div class="ml-3"> <button class="btn btn-link btn-neutral mr-1" (click)="myModal.show()">Lista animales</button></div>
+              </div>
+            </li>
+            <li class="py-2">
+              <div class="d-flex align-items-center">
+                <div class="icon icon-success mb-2">
+                  <i class="tim-icons icon-single-02"> </i>
+                </div>
+                <div class="ml-3"> <button class="btn btn-link btn-neutral mr-1">Test</button></div>
+              </div>
+            </li>
+          
+          </ul>
+        </div>
+      </div>
+        <div class="col-lg-8 col-md-8 text-center">
+          <h1 style="font-size:36px;  line-height: 120%" class="text-white">
+           {{preguntas}}
+             <br />
+
+           
+          </h1>
+          <p class="text-white mb-3" *ngIf="ocultarText">
+            Si no puedo adivinar el animal que estas penzando tu habras ganado Sueerte!!
+          </p>
+        
+          <div class="btn-wrapper" *ngIf="ocultarbtn">
+            <div class="btn-wrapper mb-3">
+              <p class="category text-success d-inline mr-1">Preciona Si correcto o No si es incorrecto</p>
+              <a
+                class="btn btn-success btn-link btn-sm"
+                href="javascript:void(0)"
+              >
+                <i class="tim-icons icon-minimal-right"> </i>
+              </a>
+            </div>
+            <div class="button-container">
+              <button (click)="empesemosPreguntas('Si')"
+                class="btn btn-icon  btn-round btn-neutral mr-1"
+                href="javascript:void(0)" 
+              >
+               SI
+              </button>&nbsp;&nbsp;
+              <button (click)="empesemosPreguntas('No')"
+                class="btn btn-icon  btn-round btn-warning mr-1"
+                href="javascript:void(0)"
+              >
+               NO
+              </button>&nbsp;&nbsp;
+              <button (click)="empesemosPreguntas('Saltar')"
+                class="btn   btn-default "
+                href="javascript:void(0)"
+              >
+                NO SAVE
+              </button>
+             
+            </div>
+          </div>
+          <div *ngIf="ocultarPosibleSolucion">
+            <button
+                  class="btn btn-success"
+                  data-target="#myModal2"
+                  (click)="myModal2.show()"
+                >
+                  Posibles Soluciones
+                </button>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+
+
+ 
+
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel" bsModal class="modal fade modal-default"
+#myModal="bs-modal" id="myModal" role="dialog" tabindex="-1"
+>
+<div class="modal-dialog modal-lg">
+  <div class="modal-content ">
+    <div class="modal-header justify-content-center">
+      <button
+        aria-hidden="true"
+        class="close"
+        data-dismiss="modal"
+        type="button"
+        (click)="myModal.hide()"
+      >
+        <i class="tim-icons icon-simple-remove"> </i>
+      </button>
+      <h4 class="title title-up">Lista Animales</h4>
+    </div>
+    <div class="modal-body" >
+      <div class="row" > 
+        <div class="col-md-3" >
+          <ul  *ngFor="let hero of animales_restantes; let i = index;">
+            <li *ngIf="i<=7">
+                <span style="color:black">{{hero}}</span> &nbsp;
+            </li>
+        </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="heroes" *ngFor="let hero of animales_restantes; let i = index;">
+            <li *ngIf="i>7&& i<=14">
+                <span style="color:black">{{hero}}</span> &nbsp;
+            </li>
+        </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="heroes" *ngFor="let hero of animales_restantes; let i = index;">
+            <li *ngIf="i>14&& i<=21">
+                <span style="color:black">{{hero}}</span> &nbsp;
+            </li>
+        </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="heroes" *ngFor="let hero of animales_restantes; let i = index;">
+            <li *ngIf="i>21">
+                <span style="color:black">{{hero}}</span> &nbsp;
+            </li>
+        </ul>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" type="button">Ok !</button>
+      <button
+        class="btn btn-danger"
+        data-dismiss="modal"
+        type="button"
+        (click)="myModal.hide()"
+      >
+        Cerrar
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div
+aria-hidden="true"
+aria-labelledby="myModalLabel"
+bsModal
+class="modal fade modal-black"
+#myModal2="bs-modal"
+id="myModal2"
+role="dialog"
+tabindex="-1"
+>
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header justify-content-center">
+      <button
+        aria-hidden="true"
+        class="close"
+        data-dismiss="modal"
+        (click)="myModal2.hide()"
+        type="button"
+      >
+        <i class="tim-icons icon-simple-remove text-white"> </i>
+      </button>
+      <div class="text-muted text-center ml-auto mr-auto">
+        <h3 style="font-size: 24px;" class="mb-0">Cual de estos Animales es?</h3>
+      </div>
+    </div>
+    <div class="modal-body">
+     
+     
+      <div class="row" > 
+        <div class="col-md-3" >
+          <ul  *ngFor="let hero of animales_restantes; let i = index;">
+            <li *ngIf="i<=7">
+              <div class="form-check form-check-radio">
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    id="exampleRadios1"
+                    name="exampleRadios"
+                    type="radio"
+                    
+                    value={{hero}}
+                    (click)="radioChangeHandler(hero)"
+                  />
+  
+                  <span class="form-check-sign" style="color:white">{{hero}} </span> 
+                </label>
+              </div>
+             
+            </li>
+        </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="heroes" *ngFor="let hero of animales_restantes; let i = index;">
+            <li *ngIf="i>7&& i<=14">
+              <div class="form-check form-check-radio">
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    id="exampleRadios1"
+                    name="exampleRadios"
+                    type="radio"
+                    value="option1"
+                  />
+  
+                  <span class="form-check-sign" style="color:white"> {{hero}}</span> 
+                </label>
+              </div>
+            </li>
+        </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="heroes" *ngFor="let hero of animales_restantes; let i = index;">
+            <li *ngIf="i>14&& i<=21">
+              <div class="form-check form-check-radio">
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    id="exampleRadios1"
+                    name="exampleRadios"
+                    type="radio"
+                    value="option1"
+                    
+                  />
+  
+                  <span class="form-check-sign" style="color:white">{{hero}} </span> 
+                </label>
+              </div>
+            </li>
+        </ul>
+        </div>
+        <div class="col-md-3">
+          <ul class="heroes" *ngFor="let hero of animales_restantes; let i = index;">
+            <li *ngIf="i>21">
+              <div class="form-check form-check-radio">
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    id="exampleRadios1"
+                    name="exampleRadios"
+                    type="radio"
+                    value="option1"
+                  />
+  
+                  <span class="form-check-sign " style="color:white">{{hero}} </span> 
+                </label>
+              </div>
+            </li>
+        </ul>
+        </div>
+         <div class="form-group has-success">
+                <input
+                  class="form-control form-control-success"
+                  type="text"
+                  value="Success"
+                  [ngModel]="result_sin_solucion"
+                />
+              </div>
+        <button class="btn btn-warning mr-1" (click)="resultadoss()">Verificar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
