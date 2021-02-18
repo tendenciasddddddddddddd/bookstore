@@ -16,16 +16,16 @@ export class Configurar {
             // console.log(this.vector_animal)
             //--------------------   
     }
-     public llenarMatrix(vector_animal: any,carateristicas_animal:string){
+     public llenarArreglo_caracteristicas(vector_animal: any , carateristicas_animal:string){//llega un arreglo vacio y el string
             var SEPARADOR  = " "
             var animal;
             var   index;
-            var numero_total_animales   =   30
-            animal = carateristicas_animal.split(SEPARADOR)
+            var numero_total_animales   =   30//tope de animales
+            animal = carateristicas_animal.split(SEPARADOR)//se separa por los espacios vacios
             for(index = 0; index < numero_total_animales; index++ ){
                vector_animal[ index ] = animal[ index ];
             }
-            return vector_animal
+            return vector_animal//devolvemos el arreglo lleno con las caracteristicas de los animales 
 
      }
     
